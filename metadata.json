@@ -1,0 +1,6 @@
+{
+  "name": "Dairy Sayangg",
+  "description": "Private romantic shared diary for two partners with memories, love letters, timeline, and surprises.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

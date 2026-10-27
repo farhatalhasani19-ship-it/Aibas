@@ -1,0 +1,178 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with their linked diary identifier.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "diaryId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "displayName"]
+    },
+    "Diary": {
+      "title": "Diary",
+      "description": "Private romantic shared diary owned by Partner A and joined by Partner B.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "ownerUid": { "type": "string" },
+        "partnerUid": { "type": "string" },
+        "inviteCode": { "type": "string" },
+        "memberUids": { "type": "array" },
+        "partnerAName": { "type": "string" },
+        "partnerBName": { "type": "string" },
+        "anniversaryDate": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "ownerUid", "inviteCode", "memberUids"]
+    },
+    "DiaryEntry": {
+      "title": "DiaryEntry",
+      "description": "A shared romantic diary entry with title, content, author, tags, and date.",
+      "type": "object",
+      "properties": {
+        "diaryId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "authorUid": { "type": "string" },
+        "authorDisplayName": { "type": "string" },
+        "dateOfMemory": { "type": "string" },
+        "tags": { "type": "array" },
+        "isFavorite": { "type": "boolean" },
+        "memberUids": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["diaryId", "title", "content", "authorUid", "memberUids"]
+    },
+    "Memory": {
+      "title": "Memory",
+      "description": "A scrapbook memory with image URL, caption, album, and date.",
+      "type": "object",
+      "properties": {
+        "diaryId": { "type": "string" },
+        "caption": { "type": "string" },
+        "album": { "type": "string" },
+        "dateOfMemory": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "authorUid": { "type": "string" },
+        "authorDisplayName": { "type": "string" },
+        "isFavorite": { "type": "boolean" },
+        "memberUids": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["diaryId", "caption", "album", "authorUid", "memberUids"]
+    },
+    "LoveLetter": {
+      "title": "LoveLetter",
+      "description": "A romantic love letter, supporting private drafts or shared published letters.",
+      "type": "object",
+      "properties": {
+        "diaryId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "template": { "type": "string" },
+        "isDraft": { "type": "boolean" },
+        "authorUid": { "type": "string" },
+        "authorDisplayName": { "type": "string" },
+        "isFavorite": { "type": "boolean" },
+        "memberUids": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["diaryId", "title", "content", "authorUid", "memberUids"]
+    },
+    "TimelineEvent": {
+      "title": "TimelineEvent",
+      "description": "A relationship milestone event in chronological order.",
+      "type": "object",
+      "properties": {
+        "diaryId": { "type": "string" },
+        "title": { "type": "string" },
+        "date": { "type": "string" },
+        "description": { "type": "string" },
+        "location": { "type": "string" },
+        "authorUid": { "type": "string" },
+        "authorDisplayName": { "type": "string" },
+        "memberUids": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["diaryId", "title", "date", "authorUid", "memberUids"]
+    },
+    "LittleThing": {
+      "title": "LittleThing",
+      "description": "Small shared note, favorite food/song, inside joke, or dream.",
+      "type": "object",
+      "properties": {
+        "diaryId": { "type": "string" },
+        "category": { "type": "string" },
+        "title": { "type": "string" },
+        "notes": { "type": "string" },
+        "authorUid": { "type": "string" },
+        "authorDisplayName": { "type": "string" },
+        "isFavorite": { "type": "boolean" },
+        "memberUids": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["diaryId", "category", "title", "authorUid", "memberUids"]
+    },
+    "Surprise": {
+      "title": "Surprise",
+      "description": "Customizable love message revealed when tapping 'Pencet Ini Kalau Lagi Kangen'.",
+      "type": "object",
+      "properties": {
+        "diaryId": { "type": "string" },
+        "message": { "type": "string" },
+        "authorDisplayName": { "type": "string" },
+        "attachedLetterId": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "memberUids": { "type": "array" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["diaryId", "message", "memberUids"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile records."
+    },
+    "/diaries/{diaryId}": {
+      "schema": "Diary",
+      "description": "Shared private diary metadata."
+    },
+    "/diaries/{diaryId}/entries/{entryId}": {
+      "schema": "DiaryEntry",
+      "description": "Diary entries within a diary."
+    },
+    "/diaries/{diaryId}/memories/{memoryId}": {
+      "schema": "Memory",
+      "description": "Photo scrapbook memories."
+    },
+    "/diaries/{diaryId}/letters/{letterId}": {
+      "schema": "LoveLetter",
+      "description": "Digital love letters and drafts."
+    },
+    "/diaries/{diaryId}/timeline/{eventId}": {
+      "schema": "TimelineEvent",
+      "description": "Relationship milestone events."
+    },
+    "/diaries/{diaryId}/littleThings/{itemId}": {
+      "schema": "LittleThing",
+      "description": "Small shared notes and favorites."
+    },
+    "/diaries/{diaryId}/surprise/{surpriseId}": {
+      "schema": "Surprise",
+      "description": "Miss-you romantic surprise message config."
+    }
+  }
+}
